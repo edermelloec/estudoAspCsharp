@@ -30,6 +30,10 @@ namespace Site.Pages
                 pessoaDal.salvar(pessoa);
 
                 lblMensagem.Text = "Cliente " + pessoa.Nome + " Cadastrada com Sucesso";
+
+                txtNome.Text = string.Empty;
+                txtEmail.Text = string.Empty;
+                txtEndereco.Text = string.Empty;
             }
             catch (Exception ex)
             {
