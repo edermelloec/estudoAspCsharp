@@ -45,10 +45,11 @@ namespace DAL.Persistence
                 command.Parameters.AddWithValue("@v1", pessoa.Nome);
                 command.Parameters.AddWithValue("@v2", pessoa.Endereco);
                 command.Parameters.AddWithValue("@v3", pessoa.Email);
+                command.Parameters.AddWithValue("@v4", pessoa.Codigo);
 
                 command.ExecuteNonQuery();
 
-                command.Parameters.AddWithValue("@v4", pessoa.Codigo);
+                
             }
             catch (Exception ex)
             {
@@ -93,7 +94,7 @@ namespace DAL.Persistence
 
                 command = new SqlCommand("select * from Pessoa where Codigo = @v1", conexao);
                 command.Parameters.AddWithValue("@v1", codigo);
-                command.ExecuteNonQuery();
+                dataReader = command.ExecuteReader();
                 
 
                 Pessoa pessoa = null;
